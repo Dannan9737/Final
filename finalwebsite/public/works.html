@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多媒體設計 - 作品展示</title>
+    <link rel="icon" href="images/Logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><img src="images/MD-logo.png" alt="LOGO" class="logo">多媒體設計</h1>
+        <nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-list">
+                <li><a class="login-btn">登入</a></li>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">應用領域</a></li>
+                <li><a href="courses.html">學習內容</a></li>
+                <li><a href="works.html">展示作品</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="works-slider">
+        <div class="main-display">
+            <div class="slide active">
+                <div class="slide-bg" style="background-image: url('images/Van-Gogh.jpg');"></div>
+                <div class="slide-content">
+                    <h3>Van Gogh: The Immersive Experience</h3>
+                    <p>類型：沉浸式動畫投影展</p>
+                    <p>特色：將梵谷的畫作透過巨型投影、動畫和音樂呈現，讓觀眾感受畫作的色彩與情感。</p>
+                    <p>亮點：結合視覺藝術與音效，帶來身歷其境的感受。</p>
+                    <p>這是一場以梵谷作品為主題的沉浸式多媒體展覽，透過大型投影與動畫，將經典畫作鋪滿整個展覽空間。搭配音樂與光影效果，讓觀眾彷彿走進畫作之中，從不同角度感受藝術家的情感與創作氛圍。</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/rain-room.png');"></div>
+                <div class="slide-content">
+                    <h3>Rain Room</h3>
+                    <p>類型：互動裝置藝術</p>
+                    <p>特色：模擬下雨的環境，觀眾走入時，雨會因感應而停止落在身上。</p>
+                    <p>亮點：結合聲音、光影與感應技術，體驗「操控自然」的感覺。</p>
+                    <p>Rain Room 是一件互動式多媒體裝置藝術作品，模擬下雨的環境，並透過感應技術讓雨水在觀眾行走時自動避開。作品結合聲音、燈光與感應系統，讓觀眾在不被淋濕的情況下體驗置身雨中的感覺。</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/meow-wolf.jpg');"></div>
+                <div class="slide-content">
+                    <h3>Meow Wolf</h3>
+                    <p>類型：沉浸式互動藝術空間</p>
+                    <p>特色：結合雕塑、影像、聲音、燈光與互動裝置，形成奇幻、探索式的多媒體世界。</p>
+                    <p>亮點：每個觀眾的探索路線不同，體驗充滿驚喜。</p>
+                    <p>Meow Wolf 是一種大型沉浸式互動藝術展覽，透過場景設計、影像、聲音與互動裝置，打造充滿想像力的探索空間。觀眾可以自由穿梭於不同場景，每一次探索都可能產生不同的體驗，增加參與感與趣味性。
+                    </p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/ARTECHOUSE.jpeg');"></div>
+                <div class="slide-content">
+                    <h3>ARTECHOUSE</h3>
+                    <p>類型：互動數位藝術展</p>
+                    <p>特色：透過感應器、投影與聲光效果，創造可以與觀眾互動的沉浸式場景。</p>
+                    <p>亮點：觀眾的動作會改變展覽效果，體驗高度參與感。</p>
+                    <p>ARTECHOUSE 是以數位科技為核心的多媒體藝術展覽空間，展出作品多結合投影、感應裝置與聲光效果。觀眾的動作會影響畫面變化，使展覽成為一種即時互動的體驗，強調科技與藝術之間的結合。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="thumbnails">
+            <div class="thumb active"><img src="images/Van-Gogh.jpg" alt="1"></div>
+            <div class="thumb"><img src="images/rain-room.png" alt="2"></div>
+            <div class="thumb"><img src="images/meow-wolf.jpg" alt="3"></div>
+            <div class="thumb"><img src="images/ARTECHOUSE.jpeg" alt="4"></div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>會員資訊登錄</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>姓名</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label>電子郵件</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>訊息內容</label>
+                    <textarea id="message" name="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">傳送並登入</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
