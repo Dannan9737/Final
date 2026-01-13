@@ -13,7 +13,7 @@ const db = Datastore.create({ filename: './database.db', autoload: true });
 
 app.use(express.json());
 
-// 重要：因為你的 HTML 檔案直接放在 finalwebsite 資料夾下，所以我們將靜態路徑設為目前目錄
+// 重要:HTML 檔案直接放在 finalwebsite 資料夾下，將靜態路徑設為目前目錄
 app.use(express.static('public')); 
 
 // 接收表單資料的 API

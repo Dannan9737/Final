@@ -93,12 +93,9 @@ header nav {
 @media (max-width: 768px) {
   header h1 {
     left: 80px;
-    /* 縮小左邊距，給漢堡按鈕空間 */
     font-size: 1.5rem;
-    /* 字縮小一點點 */
   }
 
-  /* 確保 Logo 不會太大 */
   .logo {
     width: 50px;
     height: 50px;
@@ -163,8 +160,7 @@ header nav {
   bottom: 0;
   width: 0%;
   height: 2px;
-  background-color: #1477d3;
-  /* 底線顏色，可換 */
+  background-color: #1477d3;/* 底線顏色，可換 */
   transition: width 0.3s ease;
 }
 
@@ -344,7 +340,6 @@ footer {
   right: 10%;
 }
 
-/* 文字區放在最上層 */
 .hero h2,
 .hero span,
 .hero p {
@@ -352,7 +347,6 @@ footer {
   z-index: 1;
 }
 
-/* 主標題 */
 .hero h2 {
   font-size: 3.5rem;
   letter-spacing: 0.15em;
@@ -360,7 +354,6 @@ footer {
   animation: fadeUp 1s ease forwards;
 }
 
-/* 副標說明 */
 .hero p {
   max-width: 720px;
   font-size: 1.15rem;
@@ -479,14 +472,12 @@ footer {
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75);
 }
 
-/* 標題 */
 .section-light .card-title {
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.05em;
 }
 
-/* 內文 */
 .section-light .card-text {
   color: #b1b8c0;
   font-size: 0.95rem;
@@ -597,10 +588,8 @@ footer {
   flex-direction: row-reverse;
 }
 
-/* 圖片 */
 .courses-img {
   flex: 0 0 360px;
-  /* 固定寬度 */
   max-width: 360px;
 }
 
@@ -618,7 +607,6 @@ footer {
   display: block;
 }
 
-/* 文字 */
 .courses-text {
   flex: 1;
 }
@@ -689,14 +677,12 @@ footer {
   pointer-events: auto;
 }
 
-/* 背景大圖 */
 .slide-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   filter: brightness(0.6);
-  /* 讓背景暗一點，文字才清楚 */
   transform: scale(1.1);
   /* 準備做放大動畫 */
   transition: transform 5s linear;
@@ -706,7 +692,6 @@ footer {
   transform: scale(1);
 }
 
-/* 文字說明 */
 .slide-content {
   position: relative;
   z-index: 5;
@@ -716,13 +701,11 @@ footer {
   padding: 40px;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.4);
-  /* 深色透明背景，讓白色文字更清楚 */
   backdrop-filter: blur(10px);
   /* 背景模糊 */
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  /* 極細微的亮邊 */
-  /* 讓面板稍微往左偏一點點，更有設計感 */
+  /* 亮邊 */
   margin-left: 5%;
 }
 
@@ -732,10 +715,8 @@ footer {
   inset: 0;
   /* 撐滿整個 content 區域 */
   z-index: -1;
-  /* 放在文字後方 */
 
   background: rgba(255, 255, 255, 0.15);
-  /* 淺色透明 */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 30px;
@@ -780,7 +761,6 @@ footer {
   filter: grayscale(100%);
   position: relative;
   z-index: 1000;
-  /* 未選中時黑白 */
 }
 
 .thumb img {
@@ -820,13 +800,11 @@ footer {
 
   .thumb {
     width: 60px;
-    /* 手機版縮圖小一點 */
     height: 80px;
   }
 
   .slide-content h3 {
     font-size: 2rem;
-    /* 手機標題縮小 */
   }
 
   .slide-content {

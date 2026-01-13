@@ -90,7 +90,6 @@
         // 使用 DOMContentLoaded 確保 HTML 元素（如 #galaxy-canvas）已經生成
         document.addEventListener("DOMContentLoaded", () => {
             
-            // --- 星空 Canvas 邏輯 ---
             const canvas = document.getElementById("galaxy-canvas");
             if (canvas) {
                 const ctx = canvas.getContext("2d");
@@ -164,7 +163,6 @@
                 animate();
             }
 
-            // --- GSAP ScrollTrigger 邏輯 ---
             gsap.registerPlugin(ScrollTrigger);
 
             gsap.utils.toArray(".courses-row").forEach((row, i) => {
