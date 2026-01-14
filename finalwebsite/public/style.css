@@ -33,12 +33,6 @@ header nav {
   align-items: center;
 }
 
-.login-btn {
-  border: 1px solid #1477d3;
-  padding: 5px 15px !important;
-  border-radius: 20px;
-}
-
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -251,10 +245,10 @@ h2 {
   line-height: 1.7;
 }
 
-.info-card {
+/* .info-card {
   opacity: 0;
   transform: translateY(40px);
-}
+} */
 
 footer {
     background: #111;
@@ -269,18 +263,20 @@ footer {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(8, 18, 31, 0.9);
+    backdrop-filter: blur(8px);/* 模糊背景 */
     z-index: 9999;
     justify-content: center;
     align-items: center;
 }
+
 .modal-content {
     background: #161b22;
     padding: 30px;
     border-radius: 15px;
     width: 400px;
     border: 1px solid #30363d;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     color: white;
 }
 .input-group { margin-bottom: 15px; }
@@ -462,14 +458,14 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
   overflow: hidden;
 }
 
 /* Hover 浮起效果 */
 .section-light .card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75);
+  transform: translateY(-12px) !important;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75) !important;
 }
 
 .section-light .card-title {
@@ -662,8 +658,7 @@ footer {
   z-index: 1;
   /* 預設層級低 */
   visibility: hidden;
-  /* 完全隱藏，避免擋住縮圖點擊 */
-  transition: opacity 0.8s ease, visibility 0.8s;
+  /* transition: opacity 0.8s ease, visibility 0.8s; */
   display: flex;
   align-items: center;
   padding-left: 10%;
@@ -684,8 +679,7 @@ footer {
   background-position: center;
   filter: brightness(0.6);
   transform: scale(1.1);
-  /* 準備做放大動畫 */
-  transition: transform 5s linear;
+  z-index: 0;
 }
 
 .slide.active .slide-bg {

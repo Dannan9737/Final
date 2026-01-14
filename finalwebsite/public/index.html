@@ -21,11 +21,11 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-list">
-                <li><a class="login-btn">登入</a></li>
                 <li><a href="index.html">首頁</a></li>
                 <li><a href="about.html">應用領域</a></li>
                 <li><a href="courses.html">學習內容</a></li>
                 <li><a href="works.html">展示作品</a></li>
+                <li><a href="#" id="openLogin">聯絡/登錄</a></li>
             </ul>
         </nav>
     </header>
@@ -48,42 +48,8 @@
                 <p class="section-subtitle">結合設計、科技與互動的創作領域</p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="info-card">
-                        <div class="icon">🎨</div>
-                        <h3>結合哪些領域</h3>
-                        <p>
-                            多媒體設計整合圖像、動畫、互動操作、
-                            聲音效果與影像內容，
-                            讓作品不再只是靜態畫面，而是完整的體驗。
-                        </p>
-                    </div>
-                </div>
+            <div class="row g-4" id="about-container">
 
-                <div class="col-md-4">
-                    <div class="info-card">
-                        <div class="icon">⚙️</div>
-                        <h3>與傳統設計的差異</h3>
-                        <p>
-                            傳統設計以靜態視覺為主，
-                            多媒體設計則加入動態與互動，
-                            讓使用者能操作、參與並回饋。
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="info-card">
-                        <div class="icon">🚀</div>
-                        <h3>為什麼現在很重要</h3>
-                        <p>
-                            在數位時代中，
-                            多媒體設計能讓資訊更快速被理解，
-                            提升互動體驗，成為數位內容的重要核心。
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -95,8 +61,8 @@
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2>會員資訊登錄</h2>
-            <form id="loginForm">
+            <h2>聯絡與登錄</h2>
+            <form id="loginForm" action="/contact" method="POST" enctype="multipart/form-data">
                 <div class="input-group">
                     <label>姓名</label>
                     <input type="text" id="name" name="name" required>
@@ -109,6 +75,10 @@
                     <label>訊息內容</label>
                     <textarea id="message" name="message" rows="3" required></textarea>
                 </div>
+                <div class="input-group">
+                    <label>上傳附件 (選填)</label>
+                    <input type="file" name="myFile" style="border:none; background:none;">
+                </div>
                 <button type="submit" class="submit-btn">傳送並登入</button>
             </form>
         </div>
@@ -117,6 +87,70 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        // 1. 動畫邏輯
+        function initHomeAnimation() {
+            if (typeof gsap !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // 抓取剛生成的卡片
+                const cards = document.querySelectorAll(".info-card");
+
+                if (cards.length > 0) {
+                    // 先確保把卡片歸零（以防萬一 CSS 沒改掉）
+                    gsap.set(cards, { opacity: 0, y: 40 });
+
+                    gsap.to(cards, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        stagger: 0.2,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: "#about-container",
+                            start: "top 85%", // 稍微調低一點觸發點，比較容易看到
+                        }
+                    });
+                }
+            }
+        }
+
+        // 2. 抓取資料
+        async function loadAboutContent() {
+            try {
+                console.log("開始抓取首頁資料...");
+                const response = await fetch('/about');
+                const data = await response.json();
+                console.log("收到的資料:", data); // 這裡檢查資料有沒有進來
+
+                const container = document.getElementById('about-container');
+
+                if (data && data.length > 0) {
+                    container.innerHTML = data.map(item => `
+                <div class="col-md-4">
+                    <div class="info-card">
+                        <div class="icon">${item.icon}</div>
+                        <h3>${item.title}</h3>
+                        <p>${item.text}</p>
+                    </div>
+                </div>
+            `).join('');
+
+                    console.log("HTML 注入成功，準備啟動動畫");
+                    initHomeAnimation();
+                } else {
+                    console.warn("資料庫是空的！");
+                }
+            } catch (error) {
+                console.error('抓取失敗:', error);
+            }
+        }
+
+        // 3. 啟動
+        window.addEventListener('load', loadAboutContent);
+    </script>
+
 </body>
 
 </html>

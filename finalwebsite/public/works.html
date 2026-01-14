@@ -21,73 +21,34 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-list">
-                <li><a class="login-btn">登入</a></li>
                 <li><a href="index.html">首頁</a></li>
                 <li><a href="about.html">應用領域</a></li>
                 <li><a href="courses.html">學習內容</a></li>
                 <li><a href="works.html">展示作品</a></li>
+                <li><a href="#" id="openLogin">聯絡/登錄</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="works-slider">
-        <div class="main-display">
-            <div class="slide active">
-                <div class="slide-bg" style="background-image: url('images/Van-Gogh.jpg');"></div>
-                <div class="slide-content">
-                    <h3>Van Gogh: The Immersive Experience</h3>
-                    <p>類型：沉浸式動畫投影展</p>
-                    <p>特色：將梵谷的畫作透過巨型投影、動畫和音樂呈現，讓觀眾感受畫作的色彩與情感。</p>
-                    <p>亮點：結合視覺藝術與音效，帶來身歷其境的感受。</p>
-                    <p>這是一場以梵谷作品為主題的沉浸式多媒體展覽，透過大型投影與動畫，將經典畫作鋪滿整個展覽空間。搭配音樂與光影效果，讓觀眾彷彿走進畫作之中，從不同角度感受藝術家的情感與創作氛圍。</p>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="slide-bg" style="background-image: url('images/rain-room.png');"></div>
-                <div class="slide-content">
-                    <h3>Rain Room</h3>
-                    <p>類型：互動裝置藝術</p>
-                    <p>特色：模擬下雨的環境，觀眾走入時，雨會因感應而停止落在身上。</p>
-                    <p>亮點：結合聲音、光影與感應技術，體驗「操控自然」的感覺。</p>
-                    <p>Rain Room 是一件互動式多媒體裝置藝術作品，模擬下雨的環境，並透過感應技術讓雨水在觀眾行走時自動避開。作品結合聲音、燈光與感應系統，讓觀眾在不被淋濕的情況下體驗置身雨中的感覺。</p>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="slide-bg" style="background-image: url('images/meow-wolf.jpg');"></div>
-                <div class="slide-content">
-                    <h3>Meow Wolf</h3>
-                    <p>類型：沉浸式互動藝術空間</p>
-                    <p>特色：結合雕塑、影像、聲音、燈光與互動裝置，形成奇幻、探索式的多媒體世界。</p>
-                    <p>亮點：每個觀眾的探索路線不同，體驗充滿驚喜。</p>
-                    <p>Meow Wolf 是一種大型沉浸式互動藝術展覽，透過場景設計、影像、聲音與互動裝置，打造充滿想像力的探索空間。觀眾可以自由穿梭於不同場景，每一次探索都可能產生不同的體驗，增加參與感與趣味性。
-                    </p>
-                </div>
-            </div>
-            <div class="slide">
-                <div class="slide-bg" style="background-image: url('images/ARTECHOUSE.jpeg');"></div>
-                <div class="slide-content">
-                    <h3>ARTECHOUSE</h3>
-                    <p>類型：互動數位藝術展</p>
-                    <p>特色：透過感應器、投影與聲光效果，創造可以與觀眾互動的沉浸式場景。</p>
-                    <p>亮點：觀眾的動作會改變展覽效果，體驗高度參與感。</p>
-                    <p>ARTECHOUSE 是以數位科技為核心的多媒體藝術展覽空間，展出作品多結合投影、感應裝置與聲光效果。觀眾的動作會影響畫面變化，使展覽成為一種即時互動的體驗，強調科技與藝術之間的結合。</p>
-                </div>
-            </div>
+        <div class="main-display" id="main-display">
+
         </div>
 
-        <div class="thumbnails">
-            <div class="thumb active"><img src="images/Van-Gogh.jpg" alt="1"></div>
-            <div class="thumb"><img src="images/rain-room.png" alt="2"></div>
-            <div class="thumb"><img src="images/meow-wolf.jpg" alt="3"></div>
-            <div class="thumb"><img src="images/ARTECHOUSE.jpeg" alt="4"></div>
+        <div class="thumbnails" id="thumb-container">
+
         </div>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2>會員資訊登錄</h2>
-            <form id="loginForm">
+            <h2>聯絡與登錄</h2>
+            <form id="loginForm" action="/contact" method="POST" enctype="multipart/form-data">
                 <div class="input-group">
                     <label>姓名</label>
                     <input type="text" id="name" name="name" required>
@@ -100,14 +61,138 @@
                     <label>訊息內容</label>
                     <textarea id="message" name="message" rows="3" required></textarea>
                 </div>
+                <div class="input-group">
+                    <label>上傳附件 (選填)</label>
+                    <input type="file" name="myFile" style="border:none; background:none;">
+                </div>
                 <button type="submit" class="submit-btn">傳送並登入</button>
             </form>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        let currentIndex = 0;
+        let slides = [];
+        let thumbs = [];
+
+        async function loadWorks() {
+            try {
+                const res = await fetch('/works');
+                const data = await res.json();
+
+                const displayContainer = document.getElementById('main-display');
+                const thumbContainer = document.getElementById('thumb-container');
+
+                // 1. 動態生成 HTML
+                data.forEach((work, index) => {
+                    const activeClass = index === 0 ? 'active' : '';
+
+                    displayContainer.innerHTML += `
+                    <div class="slide ${activeClass}" style="opacity: ${index === 0 ? 1 : 0}">
+                        <div class="slide-bg" style="background-image: url('${work.img}');"></div>
+                        <div class="slide-content">
+                            <h3>${work.title}</h3>
+                            <p><strong>類型：</strong>${work.type}</p>
+                            <p><strong>特色：</strong>${work.feature}</p>
+                            <p><strong>亮點：</strong>${work.highlight}</p>
+                            <p>${work.desc}</p>
+                        </div>
+                    </div>
+                `;
+
+                    thumbContainer.innerHTML += `
+                    <div class="thumb ${activeClass}" data-index="${index}">
+                        <img src="${work.img}" alt="${work.title}">
+                    </div>
+                `;
+                });
+
+                // 2. 獲取剛剛生成的元素
+                slides = document.querySelectorAll('.slide');
+                thumbs = document.querySelectorAll('.thumb');
+
+                // 3. 綁定事件
+                thumbs.forEach((thumb, index) => {
+                    thumb.addEventListener('click', () => changeSlide(index));
+                });
+
+                // 初始進場動畫
+                if (slides[0]) {
+                    const content = slides[0].querySelector('.slide-content');
+                    gsap.fromTo(content, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8 });
+                }
+
+            } catch (err) {
+                console.error("載入作品失敗:", err);
+            }
+        }
+
+        let isAnimating = false; // 防止連點造成的閃爍
+
+        // 4. 切換邏輯 (整合 GSAP)
+        function changeSlide(nextIndex) {
+            // 如果正在動畫中，或是點擊的是目前的投影片，則不執行
+            if (isAnimating || nextIndex === currentIndex) return;
+
+            isAnimating = true; // 開始動畫，鎖定點擊
+
+            // 1. 處理舊的投影片 (currentIndex)
+            const oldSlide = slides[currentIndex];
+            const oldThumb = thumbs[currentIndex];
+            const oldBg = oldSlide.querySelector('.slide-bg');
+
+            oldThumb.classList.remove('active');
+
+            // 讓舊投影片優雅淡出
+            gsap.to(oldSlide, {
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    gsap.set(oldSlide, { visibility: "hidden", pointerEvents: "none" });
+                    if (oldBg) gsap.set(oldBg, { scale: 1.1 }); // 重置背景縮放
+                }
+            });
+
+            // 2. 更新索引
+            currentIndex = nextIndex;
+
+            // 3. 處理新的投影片 (nextIndex / 新的 currentIndex)
+            const newSlide = slides[currentIndex];
+            const newThumb = thumbs[currentIndex];
+            const newBg = newSlide.querySelector('.slide-bg');
+            const newContent = newSlide.querySelector('.slide-content');
+
+            newThumb.classList.add('active');
+
+            // 立即將新投影片設為可見但透明，並放在舊的上面
+            gsap.set(newSlide, { visibility: "visible", pointerEvents: "auto", opacity: 0 });
+
+            // 執行新投影片的淡入
+            gsap.to(newSlide, {
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out",
+                onComplete: () => {
+                    isAnimating = false; // 動畫結束，解鎖
+                }
+            });
+
+            // 背景縮放動畫 (從 1.1 緩慢縮至 1.0)
+            if (newBg) {
+                gsap.fromTo(newBg, { scale: 1.1 }, { scale: 1, duration: 4, ease: "power1.out" });
+            }
+
+            // 文字進場動畫
+            if (newContent) {
+                gsap.fromTo(newContent,
+                    { x: -50, opacity: 0 },
+                    { x: 0, opacity: 1, duration: 0.8, delay: 0.3, ease: "back.out(1.7)" }
+                );
+            }
+        }
+        window.addEventListener('load', loadWorks);
+    </script>
 
 </body>
 
