@@ -198,6 +198,11 @@ server.get("/works", async (req, res) => {
     res.json(workData);
 });
 
+server.get("/check-data", async (req, res) => {
+    const data = await ContactDB.find({});
+    res.json(data);
+});
+
 server.post("/contact", async (req, res) => {
     try {
         // 1. 先處理檔案上傳

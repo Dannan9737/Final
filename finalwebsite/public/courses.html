@@ -182,10 +182,11 @@
                         x: xStart,
                         duration: 1,
                         ease: "power2.out",
+                        clearProps: "all",// 動畫結束後清除 inline style
                         scrollTrigger: {
                             trigger: row,
-                            start: "top 85%",
-                            toggleActions: "play reverse play reverse",
+                            start: "top 90%",
+                            toggleActions: "play none none none",
                             markers: false,
                         },
                     });
